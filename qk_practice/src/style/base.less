@@ -1,0 +1,27 @@
+/*页面滚动*/
+.overflow-auto(){
+  overflow: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  /* 设置滚动条的样式 */
+  &::-webkit-scrollbar {
+    width:6px;
+    position: absolute;
+    right: 0;
+  }
+  /* 滚动槽 */
+  &::-webkit-scrollbar-track {
+    border-radius:6px;
+  }
+  /* 滚动条滑块 */
+  &::-webkit-scrollbar-thumb {
+    border-radius:6px;
+    background:rgba(0,0,0,0.2);
+  }
+  &::-webkit-scrollbar-thumb:window-inactive {
+    background:rgba(0,0,0,0.2);
+  }
+}
+
+
