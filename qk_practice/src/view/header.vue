@@ -1,7 +1,7 @@
 <template>
     <div class="header" :class="{changeBg:showChange}" @mousemove="enterHeader" @mouseleave="leaveHeader">
         <div class="headerRight" v-text="`齐坤`"></div>
-        <div class="headerLeft" @mouseenter="enterHead" @mouseleave="leaveHead">
+        <div class="headerLeft" @mouseenter="enterHead" @mouseleave="leaveHead" @click="clickbtn">
             <base-icon :name="homeImage" :width="18" :height="18"></base-icon>
             <span v-text="`home`"></span>
         </div>
@@ -22,6 +22,13 @@ export default {
       window.addEventListener('scroll', this.paperScroll,true)
     },
     methods:{
+        clickbtn(){
+            this.axios.get('http://95.179.209.29:3000').then((response)=>{
+                console.log("lala:",response)
+            }).catch((response)=>{
+                console.log('luelue:',response);
+            })
+        },
         enterHead(){
             this.homeImage = 'homeOrage'
         },

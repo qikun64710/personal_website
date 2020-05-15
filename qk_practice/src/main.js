@@ -2,6 +2,9 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import './utils/index'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+Vue.use(VueAxios,axios);
 //第三方库
 import _ from 'lodash' 
 Vue.use( _ )

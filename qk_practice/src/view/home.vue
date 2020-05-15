@@ -224,7 +224,8 @@ export default {
                     }
                     .essayOne-right{
                         display: block;
-                        width: calc(100% - 18rem);
+                        width: 22rem;
+                        max-width: 22rem;
                         height: 100%;
                         cursor: pointer;
                         background:url(../assets/image/imageTest01.jpg);
