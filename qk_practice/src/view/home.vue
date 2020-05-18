@@ -25,7 +25,15 @@
             </div>
         </div>
         <article>
-            <div class="essay">
+            <div class="homeblog">
+                <base-blog-card 
+                    v-for="(item,index) in blogList" 
+                    :key="index"
+                    :item='item'
+                    :showImg="index % 2 === 0">
+                </base-blog-card>
+            </div>
+            <!-- <div class="essay">
                 <div class="essayTitle">
                     <h1 v-text="`随笔小记`"></h1>
                 </div>
@@ -47,7 +55,7 @@
                         <a href="#" v-text="`...`"></a>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="personalWorks" v-text="`Copyright 2020 ©Qi Kun All rights reserved.`">
                 <!-- <h1 v-text="`个人作品`"></h1> -->
                 <!-- <slider></slider> -->
@@ -58,6 +66,7 @@
 <script>
 import header from './header'
 // import slider from '../personalWorks/index'
+import blogData from '../config/blog.json'
 export default {
     components:{
         'xt-header':header,
@@ -65,6 +74,7 @@ export default {
     },
     data(){
         return{
+            blogList:blogData.datalist,
             iconList:[
                 {
                     name:'github',
@@ -170,130 +180,9 @@ export default {
         }
         article{
             margin-top: 50px;
-            .essay{
+            .homeblog{
                 max-width: 40rem;
                 margin: 0 auto;
-                .essayTitle{
-                    width: 100%;
-                    padding: 0 0 5px 0;
-                    border-bottom: 1px dashed #ececec;
-                    
-                }
-                .essayOne{
-                    display: flex;
-                    height: 15rem;
-                    margin: 20px auto 2rem;
-                    border-radius: 2px;
-                    box-shadow: 0 1px 20px -8px rgba(0, 0, 0, 0.5);
-                    text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
-                    .essayOne-left{
-                        max-width: 18rem;
-                        width: 18rem;
-                        padding: 1rem 1.8rem;
-                        background: #fff;
-                        p{
-                            font-size: 12px;
-                            color: #888;
-                        }
-                        h3{
-                            color: #504e4e;
-                            font-size: 0.9rem;
-                            overflow: hidden;
-                            text-overflow: ellipsis;
-                            white-space: nowrap;
-                            margin: 1rem 0;
-                        }
-                        span{
-                            display: block;
-                            color: rgba(0, 0, 0, 0.66);
-                            text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
-                            font-size: 0.75rem;
-                            margin-top: 1rem;
-                            line-height: 1.5;
-                            height: 5.6rem;
-                            text-align: left;
-                            display: -webkit-box;
-                            -webkit-box-orient: vertical;
-                            -webkit-line-clamp: 5;
-                            overflow: hidden;
-                        }
-                        a{
-                            color: #000;
-                            font-size: 2rem;
-                        }
-                    }
-                    .essayOne-right{
-                        display: block;
-                        width: 22rem;
-                        max-width: 22rem;
-                        height: 100%;
-                        cursor: pointer;
-                        background:url(../assets/image/imageTest01.jpg);
-                        background-repeat: no-repeat;
-                        background-position: center center;
-                        background-size: cover;
-                        &:hover{
-                            transform: scale(1.1);
-                        }
-                    }
-                }
-                .essayTwo{
-                    display: flex;
-                    height: 15rem;
-                    margin: 20px auto 2rem;
-                    border-radius: 2px;
-                    box-shadow: 0 1px 20px -8px rgba(0, 0, 0, 0.5);
-                    text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
-                    .essaytwo-left{
-                        max-width: 18rem;
-                        width: 18rem;
-                        padding: 1rem 1.8rem;
-                        background: #fff;
-                        p{
-                            font-size: 12px;
-                            color: #888;
-                        }
-                        h3{
-                            color: #504e4e;
-                            font-size: 0.9rem;
-                            overflow: hidden;
-                            text-overflow: ellipsis;
-                            white-space: nowrap;
-                            margin: 1rem 0;
-                        }
-                        span{
-                            display: block;
-                            color: rgba(0, 0, 0, 0.66);
-                            text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
-                            font-size: 0.75rem;
-                            margin-top: 1rem;
-                            line-height: 1.5;
-                            height: 5.6rem;
-                            text-align: left;
-                            display: -webkit-box;
-                            -webkit-box-orient: vertical;
-                            -webkit-line-clamp: 5;
-                            overflow: hidden;
-                        }
-                        a{
-                            color: #000;
-                            font-size: 2rem;
-                        }
-                    }
-                    .essayTwo-right{
-                        display: block;
-                        width: calc(100% - 18rem);
-                        height: 100%;
-                        cursor: pointer;
-                        background:url(../assets/image/imageTest02.jpg);
-                        background-repeat: no-repeat;
-                        background-position: center center;
-                        background-size: cover;
-                        &:hover{
-                            transform: scale(1.1);
-                        }
-                    }
-                }
             }
             .personalWorks{
                 max-width: 40rem;

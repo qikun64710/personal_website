@@ -4,6 +4,7 @@ const cors = require('cors');
 const cate = require('./controller/cateController')
 app.use(cors());//解决跨域问题
 app.get('/',cate.getCate)
+app.get('/go',cate.getPostCate)
 // app.get('/go',function(req,res){
 //     res.send("this  houm"+req.query.find )
 // })

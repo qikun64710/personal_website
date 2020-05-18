@@ -16,8 +16,8 @@ getCate=(req,res)=>{
 }
 //获取制定的内容
 getPostCate=(req,res)=>{
-    let {id} = req.query
-    let sql = 'select * from cate where status = ?'
+    let id = req.query.id
+    let sql = 'select * from cate where cate_id = ?'
     let sqlArr = [id]
     var calBack = (err,data)=>{
         if(err){

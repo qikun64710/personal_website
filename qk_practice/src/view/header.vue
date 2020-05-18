@@ -1,10 +1,16 @@
 <template>
     <div class="header" :class="{changeBg:showChange}" @mousemove="enterHeader" @mouseleave="leaveHeader">
-        <div class="headerRight" v-text="`齐坤`"></div>
-        <div class="headerLeft" @mouseenter="enterHead" @mouseleave="leaveHead" @click="clickbtn">
-            <base-icon :name="homeImage" :width="18" :height="18"></base-icon>
-            <span v-text="`home`"></span>
-        </div>
+        <div class="headerLeft" v-text="`齐坤`"></div>
+        <ul class="headerRight">
+            <li v-for="(item,index) in headDataList" 
+                :key="index"
+                @click="btnClick(index)" 
+                @mouseenter="enterLi(index)" 
+                @mouseleave="leaveLi(index)">
+                <base-icon :name='item.imgName' :width='18' :height="18"></base-icon>
+                <span v-text="item.name" :class="{headerRight_text:index === showSpanColor}"></span>
+            </li>
+        </ul>
     </div>
 </template>
 <script>
@@ -12,28 +18,51 @@ export default {
     data(){
         return{
             showChange:false,
-            homeImage:'homeImage'
+            showSpanColor:-1,
+            headDataList:[
+                {
+                    name:'Home',
+                    imgName:'homeImage',
+                    width:18,
+                    height:18
+                },
+                {
+                    name:"Bolg",
+                    imgName:'bolg',
+                    width:18,
+                    height:18
+                }
+            ]
         }
     },
-    created(){
-    },
+    created(){},
     mounted(){
         // 事件监听滚动条
       window.addEventListener('scroll', this.paperScroll,true)
     },
     methods:{
-        clickbtn(){
-            this.axios.get('http://95.179.209.29:3000').then((response)=>{
-                console.log("lala:",response)
-            }).catch((response)=>{
-                console.log('luelue:',response);
-            })
+        btnClick(data){
+            if(data === 1){
+                this.$router.push({
+                    name:'jsDetaile'
+                })
+            }
         },
-        enterHead(){
-            this.homeImage = 'homeOrage'
+        enterLi(data){
+            if(data === 0){
+                this.headDataList[data].imgName = 'homeOrage'
+            }else if(data === 1){
+                this.headDataList[data].imgName = 'orageBolg'
+            }
+            this.showSpanColor = data
         },
-        leaveHead(){
-            this.homeImage = 'homeImage'
+        leaveLi(data){
+            if(data === 0){
+                this.headDataList[data].imgName = 'homeImage'
+            }else if(data === 1){
+                this.headDataList[data].imgName = 'bolg'
+            }
+            this.showSpanColor = -1
         },
         enterHeader(){
             this.showChange = true
@@ -65,28 +94,30 @@ export default {
         justify-content: space-between;
         align-items: center;
         position: fixed;
-        .headerRight{
+        .headerLeft{
             color: rgb(203, 200, 192);
             font-size: 14px;
+            cursor: pointer;
         }
-        .headerLeft{
-            height: 100%;
-            line-height: 62px;
+        .headerRight{
             display: flex;
-            justify-content: center;
             align-items: center;
-            span{
-                display: block;
-                width: 50px;
-                text-align: center;
-                font-size: 14px;
-                color: rgb(203, 200, 192);
-                cursor: pointer;
-                transition: color 300ms ease 0s;
-            }
-            &:hover{
+            justify-content: center;
+            li{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 36px 0 0;
                 span{
-                    color: rgb(255, 165, 0) !important;
+                    display: block;
+                    font-size: 14px;
+                    color: rgb(203, 200, 192);
+                    margin: 0 0 0 5px;
+                    cursor: pointer;
+                }
+                .headerRight_text{
+                    color: #FFA500 !important;
+                    transition: color 300ms ease 0s;
                 }
             }
         }
