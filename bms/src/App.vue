@@ -1,28 +1,34 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+     <Navbar class="app__navbar"></Navbar>
+        <el-row class="app__main-box">
+            <el-col :span="4" class="app__router-nav-box">
+                <RouterNav></RouterNav>
+            </el-col>
+            <el-col :span="20" class="app__main-content-box">
+                <router-view></router-view>
+            </el-col>
+        </el-row>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Navbar from './components/navbar/navbar.vue';
+import RouterNav from './components/router-nav/router-nav.vue';
+// import MainContent from './components/main-content/main-content.vue';
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Navbar,
+    RouterNav,
+    // MainContent
   }
 }
 </script>
 
 <style>
+@import './style/reset.less';
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+
 }
 </style>

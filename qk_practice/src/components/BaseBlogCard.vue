@@ -91,11 +91,11 @@ export default {
                 cursor: pointer;  
                 transition: all 0.6s;  
             }
-        }
-        &:hover{
+            &:hover{
                 img{
                     transform: scale(1.1);
                 }
             }
+        }
     }
 </style>
