@@ -8,6 +8,7 @@
         </el-col>
         <el-col :span="20" class="app__main-content-box">
             <!-- <router-view></router-view> -->
+            <router-view></router-view>
         </el-col>
       </el-row>
     <!-- <router-view></router-view> -->
@@ -21,7 +22,8 @@ export default {
   name: 'App',
   components: {
     headNave,
-    routerNave
+    routerNave,
+    
   }
 }
 </script>
