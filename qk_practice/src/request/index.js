@@ -1,5 +1,6 @@
 export const api = {
     pathName:{
-        homePage:"/go"
+        homePage:"/go",
+        selectArticle:'/selecteArticle'
     }
 }

@@ -2,7 +2,7 @@ import vue from 'vue'
 import vueRouter  from 'vue-router'
 vue.use(vueRouter )
 import Home from '../view/home'
-import blog from '../blog/index'
+import blog from '../components/BaseSkilDetails'
 const routes = [
     {
       path: '/',
