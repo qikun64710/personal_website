@@ -48,6 +48,7 @@ import quilEditer from '../ue/ue.vue'
             submit(){
                 let formDate = new FormData()
                 this.file = this.$refs.upload.uploadFiles[0].raw
+                console.log("看看file:",this.file)
                 formDate.append("title",this.title)
                 formDate.append("descripe",this.descripe)
                 formDate.append("file",this.file)

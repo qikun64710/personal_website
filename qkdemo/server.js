@@ -35,6 +35,7 @@ app.post('/uploadArticle',upload.single('file'),cate.uploadArticle)
 app.get('/selecteArticle',upload.single('file'),cate.selecteArticle)
 app.get('/upload/*', function (req, res) {
   let url = __dirname + "/" + req.url
+  console.log("瞅一瞅：",url)
   let _url = decode.decode(url)
   res.sendFile(_url);
   console.log("看看新的url:",_url);
@@ -43,7 +44,7 @@ app.get('/upload/*', function (req, res) {
 app.post('/uploadImg',upload.single('file'),function (req,res) {
   console.log("看看上传的图片:",req.file)
   let file = req.file
-  let imgurl = 'http://95.179.209.29:3000/upload/'+file.originalname
+  let imgurl = 'http://192.168.31.91:3000/upload/'+file.originalname
     res.send({
       "code":000,
       "msg":"服务器图片上传成功",

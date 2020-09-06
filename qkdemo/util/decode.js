@@ -1,6 +1,10 @@
  decode=(url) =>{
     let reg = /(%(\w|[abcdef])(\w|[abcdef]))+/g   
     let code = url.match(reg)
+    console.log("kaknkankankka:",url,code)
+    if(!code){
+        return url
+    }
     let replace_reg = /%/g
     let decode_reg = /(%(\w|[abcdef])(\w|[abcdef]))+/
     for(let i = 0; i < code.length; i ++) {

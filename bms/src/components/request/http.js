@@ -4,7 +4,7 @@ import { api } from './index'
 const getBaseUrl = (dev)=>{
     let base ={
         production:'http://95.179.209.29:3000',
-        development:'http://95.179.209.29:3000',
+        development:'http://localhost:3000',
         test:"http://localhost:3000"
     }[dev]
     if (!base) {

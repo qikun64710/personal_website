@@ -2,7 +2,8 @@ const mysql = require('mysql')
 module.exports = {
     //数据库配置
     config:{
-        host:'95.179.209.29',
+        // host:'95.179.209.29',
+        host:'localhost',
         port:'3306',
         user:'root',
         password:'000000',
@@ -15,7 +16,7 @@ module.exports = {
         pool.getConnection((err,conn)=>{
             console.log("123456")
             if(err){
-                console.log('连接失败')
+                console.log('连接失败：',err)
                 return;
             }
             //事件驱动回调

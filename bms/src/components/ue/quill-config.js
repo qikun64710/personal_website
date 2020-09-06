@@ -1,7 +1,7 @@
 import hljs from 'highlight.js'
 /*富文本编辑图片上传配置*/
 const uploadConfig = {
-    action:  'http://95.179.209.29:3000/uploadImg',  // 必填参数 图片上传地址
+    action:  'http://192.168.31.91:3000/uploadImg',  // 必填参数 图片上传地址
     methods: 'POST',  // 必填参数 图片上传方式
     token: '',  // 可选参数 如果需要token验证，假设你的token有存放在sessionStorage
     name: 'file',  // 必填参数 文件的参数名
